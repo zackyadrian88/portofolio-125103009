@@ -13,13 +13,11 @@
     --border-medium: #D6D3D1;
     --focus-ring: 0 0 0 2px #FAFAF9, 0 0 0 4px #78716C;
 
-    /* Font */
     --font-display: "Libre Baskerville", Georgia, "Times New Roman", serif;
     --font-ui: "Inter", -apple-system, "Segoe UI", Helvetica, sans-serif;
 
     --sidebar-w: 280px;
 
-    /* Override variabel Bootstrap */
     --bs-body-bg: var(--bg);
     --bs-body-color: var(--text);
     --bs-body-font-family: var(--font-ui);
@@ -31,7 +29,6 @@
     --bs-border-radius-pill: 0;
 }
 
-/* ---------- Dasar ---------- */
 body {
     background-color: var(--bg);
     color: var(--text);
@@ -90,7 +87,6 @@ a:hover {
     box-shadow: var(--focus-ring);
 }
 
-/* Tanpa bayangan di mana pun */
 *,
 *::before,
 *::after {
@@ -101,7 +97,6 @@ a:hover {
     box-shadow: var(--focus-ring);
 }
 
-/* ---------- Sidebar / Header ---------- */
 #header {
     background: var(--surface);
     border-bottom: 1px solid var(--border-subtle);
@@ -176,7 +171,6 @@ a:hover {
     border-bottom-color: var(--stone);
 }
 
-/* ---------- Konten utama ---------- */
 #main {
     padding: 48px 24px 24px;
 }
@@ -203,7 +197,6 @@ a:hover {
     margin-bottom: 12px;
 }
 
-/* ---------- Resume ---------- */
 .resume-item {
     padding: 0 0 24px 0;
     margin-bottom: 24px;
@@ -219,7 +212,6 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* ---------- Card ---------- */
 .card {
     background: var(--bg);
     border: 1px solid var(--border-subtle);
@@ -238,7 +230,6 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* ---------- Tombol ---------- */
 .btn {
     border-radius: 0;
     padding: 12px 24px;
@@ -272,7 +263,6 @@ a:hover {
     --bs-btn-active-border-color: #D6D3D1;
 }
 
-/* ---------- Form ---------- */
 .form-label {
     font-size: 13px;
     font-weight: 700;
@@ -300,7 +290,6 @@ a:hover {
     box-shadow: var(--focus-ring);
 }
 
-/* ---------- Tabel ---------- */
 .table {
     --bs-table-bg: transparent;
     --bs-table-color: var(--text);
@@ -319,7 +308,6 @@ a:hover {
     padding: 12px;
 }
 
-/* ---------- Footer ---------- */
 .site-footer {
     border-top: 1px solid var(--border-subtle);
     padding: 24px;
@@ -327,7 +315,6 @@ a:hover {
     color: var(--text-2);
 }
 
-/* ---------- Layout desktop: sidebar tetap di kiri ---------- */
 @media (min-width: 992px) {
     #header {
         position: fixed;
@@ -365,7 +352,6 @@ a:hover {
     }
 }
 
-/* ---------- Ponsel (≈375px) ---------- */
 @media (max-width: 575.98px) {
     h1 { font-size: 30px; }
     h2 { font-size: 24px; }
@@ -373,7 +359,6 @@ a:hover {
     .content > section { margin-bottom: 60px; }
 }
 
-/* Hormati preferensi pengguna */
 @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
 }
