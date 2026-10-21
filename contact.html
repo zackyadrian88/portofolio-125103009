@@ -58,6 +58,14 @@
                                             rel="noopener">Zacky Adrian</a></li>
                                     <li><strong>Status:</strong> Tersedia untuk proyek terpilih</li>
                                 </ul>
+
+                                <!-- Tombol & Elemen Toggle Detail (classList.toggle) -->
+                                <button type="button" id="toggleDetailBtn" class="btn btn-outline-secondary btn-sm mt-3">
+                                    Lihat Jam Operasional
+                                </button>
+                                <div id="detailInfo" class="d-none mt-2 alert alert-light border">
+                                    <small>🕒 <strong>Jam Respons:</strong> Senin – Jumat, 09:00 - 18:00 WIB</small>
+                                </div>
                             </div>
                         </article>
                     </div>
@@ -67,24 +75,26 @@
                             <div class="card-body">
                                 <h3>Kirim Pesan</h3>
 
-                                <form action="https://formspree.io/f/xaeqjgoq" method="POST">
+                                <!-- Alert Pesan Validasi / Status Server -->
+                                <div id="formAlert" class="alert d-none" role="alert"></div>
+
+                                <form id="contactForm" action="https://formspree.io/f/xaeqjgoq" method="POST">
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama Anda</label>
-                                        <input type="text" id="nama" name="nama" class="form-control" required>
+                                        <input type="text" id="nama" name="nama" class="form-control">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email Anda</label>
-                                        <input type="email" id="email" name="email" class="form-control" required>
+                                        <input type="email" id="email" name="email" class="form-control">
                                     </div>
 
                                     <div class="mb-4">
                                         <label for="pesan" class="form-label">Pesan</label>
-                                        <textarea id="pesan" name="pesan" rows="5" class="form-control"
-                                            required></textarea>
+                                        <textarea id="pesan" name="pesan" rows="5" class="form-control"></textarea>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                                    <button type="submit" id="submitBtn" class="btn btn-primary">Kirim Pesan</button>
                                 </form>
                             </div>
                         </article>
@@ -97,9 +107,14 @@
     </main>
 
     <footer class="site-footer">
-        <p class="mb-0">
+        <p class="mb-0">&copy; 2026 Zacky Adrian. All rights reserved.</p>
     </footer>
 
+    <!-- CDN jQuery sebelum penutup tag </body> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Custom JavaScript/jQuery -->
+    <script src="script.js"></script>
 </body>
 
 </html>
