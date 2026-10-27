@@ -5,8 +5,8 @@ $(document).ready(function () {
     // Ganti nilai di bawah ini dengan Project URL dan Anon Key kamu
     // dari: https://supabase.com/dashboard → Project Settings → API
     // ==============================================================
-    const SUPABASE_URL     = 'https://XXXXXXXXXXXXXXXX.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    const SUPABASE_URL     = 'https://ngwrvmocfvagoidhkxal.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_WmbgyULW_2AIxfrtiDu1VA_HSooekx7';
 
     // Endpoint REST API Supabase untuk tabel "pesan_kontak"
     const API_ENDPOINT = SUPABASE_URL + '/rest/v1/pesan_kontak';
