@@ -20,8 +20,7 @@ Website telah diperbarui dengan integrasi JavaScript dan jQuery (khususnya pada 
 3. **Validasi Form Client-Side**: Memeriksa input nama dan pesan dengan `.trim() === ""` untuk memastikan input tidak kosong sebelum data dikirimkan.
 4. **Data Serialization**: Pengambilan seluruh isian data form sekaligus menggunakan method `.serialize()`.
 5. **Pengiriman Asynchronous (AJAX POST)**: Mengirimkan form data ke **Supabase REST API** menggunakan `$.ajax()` dengan feedback visual status respon server secara dinamis.
-6. **Pengambilan Data (AJAX GET)**: Mengambil seluruh pesan dari database Supabase dan merendernya ke tabel HTML secara dinamis menggunakan `$.ajax()`.
-7. **DOM Manipulation (`classList.toggle`)**: Menampilkan dan menyembunyikan informasi operasional tambahan secara dinamis pada kartu kontak.
+6. **DOM Manipulation (`classList.toggle`)**: Menampilkan dan menyembunyikan informasi operasional tambahan secara dinamis pada kartu kontak.
 
 ## Teknologi yang Digunakan
 
@@ -29,8 +28,8 @@ Website telah diperbarui dengan integrasi JavaScript dan jQuery (khususnya pada 
 - CSS3 (`style.css` kustom di atas Bootstrap)
 - [Bootstrap 5.3](https://getbootstrap.com/) (grid, utilitas, komponen responsif)
 - **JavaScript (ES6+)** (DOM manipulation dan validasi form)
-- **[jQuery 3.7.1](https://jquery.com/)** (event handling, serialization, AJAX POST & GET)
-- **[Supabase](https://supabase.com/)** (database PostgreSQL cloud — simpan & ambil data pesan kontak)
+- **[jQuery 3.7.1](https://jquery.com/)** (event handling, serialization, AJAX POST)
+- **[Supabase](https://supabase.com/)** (database PostgreSQL cloud — penyimpanan data pesan kontak)
 - Google Fonts: Libre Baskerville dan Inter
 - Git & GitHub (version control)
 - Vercel (hosting/deployment)

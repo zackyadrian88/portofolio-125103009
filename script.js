@@ -97,9 +97,6 @@ $(document).ready(function () {
 
                 // Reset input form
                 $('#contactForm')[0].reset();
-
-                // Muat ulang tabel pesan setelah berhasil simpan
-                loadPesan();
             },
             error   : function (xhr, status, error) {
                 // Callback jika terjadi error pada server
@@ -116,81 +113,5 @@ $(document).ready(function () {
             }
         });
     });
-
-    // ==============================================================
-    // D. LOAD PESAN — Ambil semua data dari Supabase via AJAX GET
-    // ==============================================================
-    function loadPesan() {
-        $('#loadingMsg').removeClass('d-none');
-        $('#pesanTableWrapper').addClass('d-none');
-        $('#pesanTableBody').empty();
-        $('#emptyMsg').addClass('d-none');
-
-        $.ajax({
-            url    : API_ENDPOINT + '?select=*&order=created_at.desc',
-            type   : 'GET',
-            headers: {
-                'apikey'       : SUPABASE_ANON_KEY,
-                'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
-            },
-            dataType: 'json',
-            success : function (data) {
-                $('#loadingMsg').addClass('d-none');
-                $('#pesanTableWrapper').removeClass('d-none');
-
-                if (data && data.length > 0) {
-                    $.each(data, function (index, row) {
-                        // Format tanggal
-                        const tgl = new Date(row.created_at);
-                        const tglFormatted = tgl.toLocaleDateString('id-ID', {
-                            day: '2-digit', month: 'short', year: 'numeric'
-                        }) + ' ' + tgl.toLocaleTimeString('id-ID', {
-                            hour: '2-digit', minute: '2-digit'
-                        });
-
-                        // Escape HTML untuk keamanan (cegah XSS)
-                        function esc(str) {
-                            return $('<div>').text(str || '').html();
-                        }
-
-                        const emailHtml = row.email
-                            ? '<a href="mailto:' + esc(row.email) + '">' + esc(row.email) + '</a>'
-                            : '<span style="color:var(--text-3)">—</span>';
-
-                        const $tr = $('<tr>').append(
-                            $('<td>').text(index + 1),
-                            $('<td>').text(row.nama),
-                            $('<td>').html(emailHtml),
-                            $('<td>').text(row.pesan),
-                            $('<td>').text(tglFormatted)
-                        );
-
-                        $('#pesanTableBody').append($tr);
-                    });
-                } else {
-                    $('#emptyMsg').removeClass('d-none');
-                }
-            },
-            error   : function () {
-                $('#loadingMsg').addClass('d-none');
-                $('#pesanTableWrapper').removeClass('d-none');
-                $('#emptyMsg')
-                    .removeClass('d-none')
-                    .text('❌ Gagal memuat data. Periksa konfigurasi Supabase.');
-            }
-        });
-    }
-
-    // ==============================================================
-    // E. TOMBOL REFRESH
-    // ==============================================================
-    $('#refreshBtn').on('click', function () {
-        loadPesan();
-    });
-
-    // ==============================================================
-    // F. AUTO-LOAD saat halaman pertama kali dibuka
-    // ==============================================================
-    loadPesan();
 
 });
