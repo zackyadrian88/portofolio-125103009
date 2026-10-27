@@ -10,7 +10,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -45,6 +47,7 @@
 
                 <div class="row g-4">
 
+                    <!-- Kartu Informasi Kontak -->
                     <div class="col-12">
                         <article class="card">
                             <div class="card-body">
@@ -52,15 +55,18 @@
                                 <ul class="list-unstyled mb-0">
                                     <li class="mb-2"><strong>GitHub:</strong>
                                         <a href="https://github.com/zackyadrian88" target="_blank"
-                                            rel="noopener">zackyadrian88</a></li>
+                                            rel="noopener">zackyadrian88</a>
+                                    </li>
                                     <li class="mb-2"><strong>LinkedIn:</strong>
                                         <a href="https://www.linkedin.com/in/zacky-adrian-84123a29b/" target="_blank"
-                                            rel="noopener">Zacky Adrian</a></li>
+                                            rel="noopener">Zacky Adrian</a>
+                                    </li>
                                     <li><strong>Status:</strong> Tersedia untuk proyek terpilih</li>
                                 </ul>
 
                                 <!-- Tombol & Elemen Toggle Detail (classList.toggle) -->
-                                <button type="button" id="toggleDetailBtn" class="btn btn-outline-secondary btn-sm mt-3">
+                                <button type="button" id="toggleDetailBtn"
+                                    class="btn btn-outline-secondary btn-sm mt-3">
                                     Lihat Jam Operasional
                                 </button>
                                 <div id="detailInfo" class="d-none mt-2 alert alert-light border">
@@ -70,6 +76,7 @@
                         </article>
                     </div>
 
+                    <!-- Kartu Form Kirim Pesan -->
                     <div class="col-12">
                         <article class="card">
                             <div class="card-body">
@@ -78,24 +85,74 @@
                                 <!-- Alert Pesan Validasi / Status Server -->
                                 <div id="formAlert" class="alert d-none" role="alert"></div>
 
-                                <form id="contactForm" action="https://formspree.io/f/xaeqjgoq" method="POST">
+                                <form id="contactForm" novalidate>
                                     <div class="mb-3">
-                                        <label for="nama" class="form-label">Nama Anda</label>
-                                        <input type="text" id="nama" name="nama" class="form-control">
+                                        <label for="nama" class="form-label">Nama Anda <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" id="nama" name="nama" class="form-control"
+                                            placeholder="Nama lengkap Anda">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email Anda</label>
-                                        <input type="email" id="email" name="email" class="form-control">
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            placeholder="email@contoh.com">
                                     </div>
 
                                     <div class="mb-4">
-                                        <label for="pesan" class="form-label">Pesan</label>
-                                        <textarea id="pesan" name="pesan" rows="5" class="form-control"></textarea>
+                                        <label for="pesan" class="form-label">Pesan <span
+                                                class="text-danger">*</span></label>
+                                        <textarea id="pesan" name="pesan" rows="5" class="form-control"
+                                            placeholder="Tuliskan pesan Anda..."></textarea>
                                     </div>
 
                                     <button type="submit" id="submitBtn" class="btn btn-primary">Kirim Pesan</button>
                                 </form>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Kartu Daftar Pesan Masuk -->
+                    <div class="col-12">
+                        <article class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h3 class="mb-0">Pesan Masuk</h3>
+                                    <button type="button" id="refreshBtn" class="btn btn-outline-secondary btn-sm">
+                                        ↻ Refresh
+                                    </button>
+                                </div>
+
+                                <!-- Loading indicator -->
+                                <div id="loadingMsg" class="text-center py-3"
+                                    style="color: var(--text-3); font-size: 14px;">
+                                    Memuat data...
+                                </div>
+
+                                <!-- Tabel pesan -->
+                                <div id="pesanTableWrapper" class="d-none">
+                                    <div class="table-responsive">
+                                        <table class="table" id="pesanTable">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:40px">#</th>
+                                                    <th>Nama</th>
+                                                    <th>Email</th>
+                                                    <th>Pesan</th>
+                                                    <th style="width:160px">Waktu</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="pesanTableBody">
+                                                <!-- Diisi oleh jQuery -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p id="emptyMsg" class="text-center d-none"
+                                        style="color: var(--text-3); font-size: 14px; margin-top: 16px;">
+                                        Belum ada pesan yang masuk.
+                                    </p>
+                                </div>
+
                             </div>
                         </article>
                     </div>
@@ -110,7 +167,7 @@
         <p class="mb-0">&copy; 2026 Zacky Adrian. All rights reserved.</p>
     </footer>
 
-    <!-- CDN jQuery sebelum penutup tag </body> -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <!-- Custom JavaScript/jQuery -->
